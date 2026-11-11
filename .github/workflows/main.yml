@@ -1,0 +1,52 @@
+
+name: Build NOVAX Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/main.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download project
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Extract Android project
+        run: |
+          mkdir -p android-project
+          ZIP=$(find . -maxdepth 3 -type f -iname '*.zip' | head -n 1)
+          if [ -n "$ZIP" ]; then
+            unzip -o "$ZIP" -d android-project
+          fi
+
+      - name: Build APK
+        run: |
+          GRADLEW=$(find . -type f -name gradlew -not -path './.git/*' | head -n 1)
+          if [ -z "$GRADLEW" ]; then
+            echo "Android Gradle project or gradlew not found in the uploaded files."
+            exit 1
+          fi
+          chmod +x "$GRADLEW"
+          cd "$(dirname "$GRADLEW")"
+          ./gradlew assembleDebug
+
+      - name: Save APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: NOVAX-APK
+          path: '**/build/outputs/apk/debug/*.apk'
+          if-no-files-found: error
+          
