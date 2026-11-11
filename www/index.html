@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090b"><meta name="description" content="NOVA — Meet. Connect. Discover.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>NOVA</title>
+<style>
+:root{--bg:#09090b;--panel:#151519;--panel2:#1d1d23;--gold:#d7b56d;--gold2:#f1d99d;--muted:#9b9ba5;--white:#f7f5ef;--line:#2c2b30;--danger:#e87979}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#292219 0,#09090b 55%);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer}.app{max-width:520px;margin:auto;min-height:100vh;padding-bottom:88px}.top{display:flex;align-items:center;justify-content:space-between;padding:20px 18px 12px}.brand{font-size:27px;font-weight:900;letter-spacing:5px;color:var(--gold);text-shadow:0 0 22px #d7b56d30}.sub{font-size:10px;color:var(--muted);letter-spacing:2px}.pill{border:1px solid #6b5733;color:var(--gold2);background:#211c13;border-radius:30px;padding:8px 12px;font-size:12px}.content{padding:8px 16px}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:1.5px;margin:14px 2px 6px}.heading{font-size:25px;font-weight:800;margin:0 2px 16px}.muted{color:var(--muted)}.card{background:linear-gradient(145deg,#1a1a20,#111115);border:1px solid var(--line);border-radius:22px;padding:15px;margin-bottom:13px;box-shadow:0 12px 35px #0005}.hero{height:390px;border-radius:25px;overflow:hidden;position:relative;background:linear-gradient(0deg,#070709 2%,#09090b00 75%),linear-gradient(135deg,#52432f,#24222a 48%,#111);display:flex;align-items:flex-end;padding:20px;border:1px solid #594a31}.avatar{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,#8d7651,#25232a);border:2px solid var(--gold);display:grid;place-items:center;font-size:27px;color:#fff}.hero .avatar{width:94px;height:94px;font-size:36px}.profile-meta{margin-inline-start:13px}.profile-row{display:flex;align-items:center}.profile-name{font-size:24px;font-weight:800}.verified{color:var(--gold);font-size:13px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.tag{border:1px solid #49403a;background:#211e1b;color:#d9c79f;padding:6px 10px;border-radius:30px;font-size:11px}.hero-bottom{width:100%}.hero-actions{display:flex;justify-content:center;gap:13px;margin-top:15px}.round{width:56px;height:56px;border-radius:50%;border:1px solid #504331;background:#17161a;color:var(--gold);font-size:23px}.round.primary{background:linear-gradient(135deg,#f0d99e,#b88d43);color:#16120b;border:0}.section-title{font-size:16px;font-weight:750;margin:18px 2px 12px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.person{padding:0;overflow:hidden}.person-art{height:135px;background:linear-gradient(135deg,#6a5540,#25232c 55%,#121216);display:grid;place-items:center;font-size:45px}.person-info{padding:11px}.person-info b{font-size:14px}.person-info small{display:block;color:var(--muted);margin-top:4px}.tabs{position:fixed;z-index:5;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);background:#101014f2;backdrop-filter:blur(18px);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:10px 5px calc(10px + env(safe-area-inset-bottom))}.tab{border:0;background:none;color:#85838b;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:58px}.tab span{font-size:20px}.tab.active{color:var(--gold)}.field{width:100%;background:#0d0d11;border:1px solid #343239;color:white;padding:13px;border-radius:12px;margin:7px 0;outline:none}.btn{width:100%;border:0;border-radius:13px;padding:14px;background:linear-gradient(110deg,#f0d99e,#b88d43);color:#17130c;font-weight:850;margin-top:10px}.btn.secondary{background:#24232a;color:var(--gold);border:1px solid #4d412d}.coin{color:var(--gold);font-weight:800}.wallet{background:linear-gradient(135deg,#3b3020,#171519 65%);border:1px solid #80673d;border-radius:22px;padding:22px}.balance{font-size:38px;font-weight:900;color:var(--gold2);margin:8px 0}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.listitem{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.listitem:last-child{border:0}.chatbubble{max-width:82%;padding:11px 13px;border-radius:15px;background:#25242a;margin:8px 0;font-size:14px}.chatbubble.mine{margin-inline-start:auto;background:#5b4828;color:#fff}.notice{font-size:11px;color:var(--muted);line-height:1.7}.lang{font-size:11px}.hidden{display:none!important}
+</style></head>
+<body><div class="app">
+<header class="top"><div><div class="brand">NOVA</div><div class="sub">MEET. CONNECT. DISCOVER.</div></div><button class="pill" id="langBtn">EN / ع</button></header>
+<main class="content" id="view"></main>
+<nav class="tabs">
+<button class="tab active" data-page="discover"><span>✧</span><b data-i="discover">اكتشف</b></button>
+<button class="tab" data-page="likes"><span>♡</span><b data-i="likes">الإعجابات</b></button>
+<button class="tab" data-page="chats"><span>▤</span><b data-i="chats">المحادثات</b></button>
+<button class="tab" data-page="wallet"><span>◈</span><b data-i="wallet">المحفظة</b></button>
+<button class="tab" data-page="profile"><span>◉</span><b data-i="profile">حسابي</b></button>
+</nav></div>
+<script>
+const people=[
+ {id:1,name:"ليان",age:24,city:"بغداد",bio:"أحب السفر والقهوة والفنون.",tags:["السفر","الفن","القهوة"],emoji:"✿",gender:"woman"},
+ {id:2,name:"آدم",age:27,city:"كربلاء",bio:"مهتم بالموسيقى والرياضة والتقنية.",tags:["الموسيقى","الرياضة"],emoji:"✦",gender:"man"},
+ {id:3,name:"نور",age:23,city:"النجف",bio:"أبحث عن تعارف محترم واهتمامات مشتركة.",tags:["القراءة","التصوير"],emoji:"❋",gender:"woman"},
+ {id:4,name:"سيف",age:26,city:"البصرة",bio:"أحب البحر والرحلات والأفلام.",tags:["الرحلات","الأفلام"],emoji:"◈",gender:"man"}
+];
+let state={page:"discover",index:0,coins:120,liked:[],lang:localStorage.novaLang||"ar",messages:["مرحباً! يسعدني التعرف عليك."],selectedChat:1};
+const $=s=>document.querySelector(s);
+const t=(ar,en)=>state.lang==="ar"?ar:en;
+function header(k,desc){return `<div class="eyebrow">NOVA / ${k}</div><h1 class="heading">${desc}</h1>`}
+function personCard(p){return `<div class="card person"><div class="person-art">${p.emoji}</div><div class="person-info"><b>${p.name}، ${p.age} <span class="verified">✓</span></b><small>${p.city}</small></div></div>`}
+function render(){
+ document.documentElement.lang=state.lang;document.documentElement.dir=state.lang==="ar"?"rtl":"ltr";
+ document.querySelectorAll("[data-i]").forEach(x=>x.textContent=t(({discover:"اكتشف",likes:"الإعجابات",chats:"المحادثات",wallet:"المحفظة",profile:"حسابي"})[x.dataset.i],({discover:"Discover",likes:"Likes",chats:"Chats",wallet:"Wallet",profile:"Profile"})[x.dataset.i]));
+ $("#langBtn").textContent=state.lang==="ar"?"EN":"عربي";
+ document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.page===state.page));
+ const v=$("#view");
+ if(state.page==="discover"){
+  const p=people[state.index%people.length];
+  v.innerHTML=header("DISCOVER",t("اكتشف أشخاصاً جدد","Discover people"))+`
+  <div class="hero"><div class="hero-bottom"><div class="profile-row"><div class="avatar">${p.emoji}</div><div class="profile-meta"><div class="profile-name">${p.name}، ${p.age} <span class="verified">✓</span></div><div class="muted">${p.city}</div></div></div><p>${p.bio}</p><div class="tags">${p.tags.map(x=>`<span class="tag">${x}</span>`).join("")}</div></div></div>
+  <div class="hero-actions"><button class="round" id="pass">×</button><button class="round primary" id="like">♥</button><button class="round" id="super">★</button></div>
+  <div class="notice" style="text-align:center;margin-top:12px">${t("نموذج تجريبي بملفات شخصية افتراضية","Demo profiles shown. No real users are connected yet.")}</div>
+  <div class="section-title">${t("اقتراحات لك","Suggested for you")}</div><div class="grid">${people.filter(x=>x.id!==p.id).slice(0,2).map(personCard).join("")}</div>`;
+  $("#pass").onclick=()=>{state.index++;render()};$("#like").onclick=()=>{if(!state.liked.includes(p.id))state.liked.push(p.id);state.index++;render()};$("#super").onclick=()=>{if(state.coins<10)return alert(t("رصيدك غير كافٍ","Not enough coins"));state.coins-=10;state.liked.push(p.id);state.index++;render();};
+ } else if(state.page==="likes"){
+  v.innerHTML=header("LIKES",t("الأشخاص الذين أعجبت بهم","People you liked"))+(state.liked.length?`<div class="grid">${people.filter(p=>state.liked.includes(p.id)).map(personCard).join("")}</div>`:`<div class="card muted">${t("لا توجد إعجابات بعد. ابدأ باكتشاف الأشخاص!","No likes yet. Start discovering people!")}</div>`);
+ } else if(state.page==="chats"){
+  v.innerHTML=header("MESSAGES",t("محادثاتك","Your conversations"))+`<div class="card"><div class="listitem"><div class="avatar">✿</div><div style="flex:1"><b>ليان</b><div class="muted" style="font-size:12px">${t("اضغط لفتح المحادثة التجريبية","Tap to open demo chat")}</div></div><span class="verified">●</span></div><div id="chatbox">${state.messages.map((m,i)=>`<div class="chatbubble ${i%2?"mine":""}">${m}</div>`).join("")}</div><div class="row"><input class="field" id="msg" placeholder="${t("اكتب رسالة...","Write a message...")}"><button class="pill" id="send">${t("إرسال","Send")}</button></div></div><p class="notice">${t("المحادثة هنا تجريبية ومحفوظة على هذا الجهاز فقط.","Demo chat is stored on this device only.")}</p>`;
+  $("#send").onclick=()=>{let m=$("#msg").value.trim();if(m){state.messages.push(m);render()}}; 
+ } else if(state.page==="wallet"){
+  v.innerHTML=header("NOVA WALLET",t("محفظة العملات","Your coin wallet"))+`<div class="wallet"><div class="muted">${t("رصيدك الحالي","Current balance")}</div><div class="balance">◈ ${state.coins}</div><div class="notice">${t("عملات NOVA التجريبية","NOVA demo coins")}</div></div><div class="section-title">${t("اكسب عملات","Earn coins")}</div><div class="card row"><div><b>${t("مكافأة يومية","Daily reward")}</b><div class="muted" style="font-size:12px">${t("جرّب الحصول على مكافأة","Claim a demo reward")}</div></div><button class="pill" id="reward">+20 ◈</button></div><div class="section-title">${t("باقات العملات","Coin packages")}</div>${[[100,"Starter"],[550,"Plus"],[1200,"Elite"]].map(a=>`<div class="card row"><div><b>${a[1]}</b><div class="coin">${a[0]} ◈</div></div><button class="pill buy" data-coins="${a[0]}">${t("تجريبي","Demo")}</button></div>`).join("")}<p class="notice">${t("لا توجد مدفوعات حقيقية مفعّلة في هذه النسخة. سنضيف بوابة دفع آمنة بعد إعداد الخادم وحساب التاجر.","Real payments are not enabled in this prototype. A secure payment provider must be configured before launch.")}</p>`;
+  $("#reward").onclick=()=>{state.coins+=20;render()};document.querySelectorAll(".buy").forEach(b=>b.onclick=()=>alert(t("الشراء غير مفعّل في النسخة التجريبية.","Purchases are disabled in this demo.")));
+ } else {
+  v.innerHTML=header("MY PROFILE",t("ملفي الشخصي","My profile"))+`<div class="card" style="text-align:center"><div class="avatar" style="margin:auto">N</div><h2>NOVA Guest</h2><p class="muted">${t("أكمل ملفك لتسهيل التعارف","Complete your profile to get discovered")}</p></div><div class="card"><label>${t("الاسم","Name")}</label><input class="field" placeholder="${t("اسم العرض","Display name")}"><label>${t("المدينة","City")}</label><input class="field" placeholder="${t("مدينتك","Your city")}"><label>${t("نبذة عنك","About you")}</label><input class="field" placeholder="${t("اكتب نبذة قصيرة","Write a short bio")}"><button class="btn" id="save">${t("حفظ محلياً","Save locally")}</button></div><div class="card"><b>${t("الأمان والخصوصية","Safety & privacy")}</b><p class="notice">${t("يجب أن يكون جميع المستخدمين 18 عاماً أو أكثر. أضفنا هذه النسخة كتجربة محلية؛ التحقق من العمر والهوية والحظر والإبلاغ يجب ربطها بالخادم قبل النشر.","All users must be 18+. Age/identity verification, blocking and reporting must be connected to a backend before public launch.")}</p></div>`;
+  $("#save").onclick=()=>alert(t("تم حفظ النموذج التجريبي على الشاشة فقط.","Demo profile form is ready; cloud saving is not connected."));
+ }
+}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{state.page=b.dataset.page;render()});
+$("#langBtn").onclick=()=>{state.lang=state.lang==="ar"?"en":"ar";localStorage.novaLang=state.lang;render()};
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+render();
+</script></body></html>

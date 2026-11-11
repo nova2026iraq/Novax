@@ -1,0 +1,12 @@
+{
+  "name": "NOVA",
+  "short_name": "NOVA",
+  "description": "Meet. Connect. Discover.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "orientation": "portrait",
+  "lang": "ar",
+  "icons": []
+}
